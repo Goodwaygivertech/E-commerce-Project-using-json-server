@@ -5,11 +5,19 @@ import SignupPage from "../pages/SignupPage";
 import ProductDetailsPage from "../pages/productDetailsPage";
 import CartPage from "../pages/CartPage";
 import Checkout from "../pages/Checkout";
+import Protected from "../features/auth/components/Protected";
+import OrderSuccessPage from "../pages/OrderSuccessPage";
+import PageNotFound from "../pages/404";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: (
+      <Protected>
+        {" "}
+        <Home></Home>{" "}
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -21,15 +29,40 @@ const router = createBrowserRouter([
   },
   {
     path: "/productdetails/:id",
-    element: <ProductDetailsPage></ProductDetailsPage>,
+    element: (
+      <Protected>
+        <ProductDetailsPage></ProductDetailsPage>
+      </Protected>
+    ),
+  },
+  {
+    path: '/order-success/:id',
+    element: (
+      <OrderSuccessPage></OrderSuccessPage>
+    ),
   },
   {
     path: "/cart",
-    element: <CartPage></CartPage>,
+    element: (
+      <Protected>
+        <CartPage></CartPage>
+      </Protected>
+    ),
   },
   {
     path: "/checkout",
-    element: <Checkout></Checkout>,
+    element: (
+      <Protected>
+        <Checkout></Checkout>
+      </Protected>
+    ),
   },
+  {
+    path: '*',
+    element: (
+      <PageNotFound></PageNotFound>
+    ),
+  },
+
 ]);
 export default router;

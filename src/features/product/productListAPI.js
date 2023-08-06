@@ -46,9 +46,9 @@ export function fetchProductsByFilters(filter,sort, pagination) {
 // }
 
 
-export function fetchProductById(index) {
+export function fetchProductById(id) {
   return new Promise(async (resolve) =>{
-    const response = await fetch(`http://localhost:5000/products/${id}`) 
+    const response = await fetch('http://localhost:5000/products/'+id) 
     const data = await response.json()
     resolve({data})
   }
