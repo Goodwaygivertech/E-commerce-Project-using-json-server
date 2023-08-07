@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCartItemsByUserIdAsync } from "./features/cart/cartSlice";
 import { useEffect } from "react";
 import { selectLoggedInUser } from "./features/auth/authSlice";
+import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ function App() {
   useEffect(() => {
     if (user) {
       dispatch(fetchCartItemsByUserIdAsync(user.id));
+      dispatch(fetchLoggedInUserAsync(user.id))
+
     }
   }, [dispatch, user]);
 

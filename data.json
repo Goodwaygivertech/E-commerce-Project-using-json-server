@@ -1860,6 +1860,7 @@
   ],
   "users": [
     {
+      "name": "shivam Kumar",
       "email": "shivamtest1@gmail.com",
       "password": "Qwerty123",
       "addresses": [
@@ -1877,23 +1878,25 @@
       "id": 1
     },
     {
+      "name": "shivam Kumar",
       "email": "shivamtest2@gmail.com",
       "password": "NM3#Z+rh6CB.RvT",
       "addresses": [
         {
           "name": "shivam kumar",
           "email": "shivamtest1@gmail.com",
-          "phone": "6202728203",
-          "nearbyPlace": "hirauta mandir",
-          "fullAddress": "ok byee",
           "city": "sheohar",
           "state": "bihar",
-          "pinCode": "843329"
+          "pinCode": "843329",
+          "phone": "6202728203",
+          "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
+          "nearbyPlace": "hirauta mandir"
         }
       ],
       "id": 2
     },
     {
+      "name": "shivam Kumar",
       "email": "shivamtest3@gmail.com",
       "password": "x6-THJAT-C2zFBa",
       "addresses": [],
@@ -1950,6 +1953,7 @@
       "totalAmount": 2498,
       "totalItems": 2,
       "user": {
+        "name": "shivam Kumar",
         "email": "shivamtest2@gmail.com",
         "password": "NM3#Z+rh6CB.RvT",
         "addresses": [
@@ -1958,7 +1962,7 @@
             "email": "shivamtest1@gmail.com",
             "phone": "6202728203",
             "nearbyPlace": "hirauta mandir",
-            "fullAddress": "ok byee",
+            "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
             "city": "sheohar",
             "state": "bihar",
             "pinCode": "843329"
@@ -1972,7 +1976,7 @@
         "email": "shivamtest1@gmail.com",
         "phone": "6202728203",
         "nearbyPlace": "hirauta mandir",
-        "fullAddress": "ok byee",
+        "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
         "city": "sheohar",
         "state": "bihar",
         "pinCode": "843329"
@@ -2005,6 +2009,7 @@
       "totalAmount": 2498,
       "totalItems": 2,
       "user": {
+        "name": "shivam Kumar",
         "email": "shivamtest2@gmail.com",
         "password": "NM3#Z+rh6CB.RvT",
         "addresses": [
@@ -2013,7 +2018,7 @@
             "email": "shivamtest1@gmail.com",
             "phone": "6202728203",
             "nearbyPlace": "hirauta mandir",
-            "fullAddress": "ok byee",
+            "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
             "city": "sheohar",
             "state": "bihar",
             "pinCode": "843329"
@@ -2027,7 +2032,7 @@
         "email": "shivamtest1@gmail.com",
         "phone": "6202728203",
         "nearbyPlace": "hirauta mandir",
-        "fullAddress": "ok byee",
+        "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
         "city": "sheohar",
         "state": "bihar",
         "pinCode": "843329"
@@ -2063,6 +2068,7 @@
       "totalAmount": 1111,
       "totalItems": 1,
       "user": {
+        "name": "shivam Kumar",
         "email": "shivamtest2@gmail.com",
         "password": "NM3#Z+rh6CB.RvT",
         "addresses": [
@@ -2071,7 +2077,7 @@
             "email": "shivamtest1@gmail.com",
             "phone": "6202728203",
             "nearbyPlace": "hirauta mandir",
-            "fullAddress": "ok byee",
+            "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
             "city": "sheohar",
             "state": "bihar",
             "pinCode": "843329"
@@ -2085,7 +2091,7 @@
         "email": "shivamtest1@gmail.com",
         "phone": "6202728203",
         "nearbyPlace": "hirauta mandir",
-        "fullAddress": "ok byee",
+        "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
         "city": "sheohar",
         "state": "bihar",
         "pinCode": "843329"
@@ -2121,6 +2127,7 @@
       "totalAmount": 1111,
       "totalItems": 1,
       "user": {
+        "name": "shivam Kumar",
         "email": "shivamtest2@gmail.com",
         "password": "NM3#Z+rh6CB.RvT",
         "addresses": [
@@ -2129,7 +2136,7 @@
             "email": "shivamtest1@gmail.com",
             "phone": "6202728203",
             "nearbyPlace": "hirauta mandir",
-            "fullAddress": "ok byee",
+            "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
             "city": "sheohar",
             "state": "bihar",
             "pinCode": "843329"
@@ -2143,7 +2150,7 @@
         "email": "shivamtest1@gmail.com",
         "phone": "6202728203",
         "nearbyPlace": "hirauta mandir",
-        "fullAddress": "ok byee",
+        "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
         "city": "sheohar",
         "state": "bihar",
         "pinCode": "843329"
@@ -2179,6 +2186,7 @@
       "totalAmount": 1111,
       "totalItems": 1,
       "user": {
+        "name": "shivam Kumar",
         "email": "shivamtest2@gmail.com",
         "password": "NM3#Z+rh6CB.RvT",
         "addresses": [
@@ -2187,7 +2195,7 @@
             "email": "shivamtest1@gmail.com",
             "phone": "6202728203",
             "nearbyPlace": "hirauta mandir",
-            "fullAddress": "ok byee",
+            "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
             "city": "sheohar",
             "state": "bihar",
             "pinCode": "843329"
@@ -2201,7 +2209,7 @@
         "email": "shivamtest1@gmail.com",
         "phone": "6202728203",
         "nearbyPlace": "hirauta mandir",
-        "fullAddress": "ok byee",
+        "fullAddress": " In hirauta village , hirauta Sim Tower se thora phiche",
         "city": "sheohar",
         "state": "bihar",
         "pinCode": "843329"

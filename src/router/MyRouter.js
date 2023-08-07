@@ -8,6 +8,8 @@ import Checkout from "../pages/Checkout";
 import Protected from "../features/auth/components/Protected";
 import OrderSuccessPage from "../pages/OrderSuccessPage";
 import PageNotFound from "../pages/404";
+import UserProfilePage from "../pages/UserProfilePage";
+import UserOrdersPage from "../pages/UserOrdersPage";
 
 const router = createBrowserRouter([
   {
@@ -36,10 +38,8 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/order-success/:id',
-    element: (
-      <OrderSuccessPage></OrderSuccessPage>
-    ),
+    path: "/order-success/:id",
+    element: <OrderSuccessPage></OrderSuccessPage>,
   },
   {
     path: "/cart",
@@ -58,11 +58,26 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '*',
+    path: "/orders",
     element: (
-      <PageNotFound></PageNotFound>
+      <Protected>
+        {" "}
+        <UserOrdersPage></UserOrdersPage>{" "}
+      </Protected>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <Protected>
+        <UserProfilePage></UserProfilePage>
+      </Protected>
     ),
   },
 
+  {
+    path: "*",
+    element: <PageNotFound></PageNotFound>,
+  },
 ]);
 export default router;
