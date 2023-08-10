@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 // import { fetchCartItemsByUserId } from "../cart/cartAPI";
 import { selectCartItems } from "../cart/cartSlice";
-import { selectLoggedInUser } from "../auth/authSlice";
+import { selectLoggedInUser } from "../auth/authSlice"; 
 
 const user = {
   name: "Tom Cook",
@@ -135,7 +135,7 @@ function NavBar({ children }) {
                                       active ? "bg-gray-100" : "",
                                       "block px-4 py-2 text-sm text-gray-700"
                                     )}
-                                  >
+                                   >
                                     {item.name}
                                   </Link>
                                 )}

@@ -453,6 +453,9 @@ const ProductGrid = ({ products }) => {
         </div>
       </div>
       </div>
+      <Link to={"/orders"}>
+      Orders
+      </Link>
 
     </>
   );

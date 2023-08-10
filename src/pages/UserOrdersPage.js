@@ -9,7 +9,7 @@ function UserOrdersPage() {
   return (
     <>
  
-    {!orders.lenth && <Navigate to='/' replace={true}></Navigate>}
+    {!orders.length && <Navigate to='/' replace={true}></Navigate>}
 
     <div>
       <NavBar>

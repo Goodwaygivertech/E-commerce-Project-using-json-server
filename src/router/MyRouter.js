@@ -17,6 +17,7 @@ import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import Logout from "../features/auth/components/Logout";
 import ProtectedAdmin from "../features/auth/components/ProtectedAdmin"
 import AdminHome from "../pages/AdminHome";
+import NavBar from "../features/navbar/Navbar";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,14 +37,29 @@ const router = createBrowserRouter([
     element: <SignupPage></SignupPage>,
   },
 
+  
+
   {
-    path: '/orders',
-    element: <UserOrdersPage></UserOrdersPage>,
+    path: "/orders",
+    element: (
+  
+      <Protected>
+       
+        <UserOrdersPage></UserOrdersPage>
+      </Protected>
+    ),
   },
   {
-    path: '/profile',
-    element: <UserProfilePage></UserProfilePage>,
+    path: "/profile",
+    element: (
+      <Protected>
+      
+        <UserProfilePage></UserProfilePage>
+     
+      </Protected>
+    ),
   },
+
   {
     path: '/logout',
     element: <Logout></Logout>,
@@ -53,7 +69,7 @@ const router = createBrowserRouter([
     element: <ForgotPasswordPage></ForgotPasswordPage>,
   },
 
-
+  
 
   {
     path: "/productdetails/:id",
@@ -83,23 +99,7 @@ const router = createBrowserRouter([
       </Protected>
     ),
   },
-  {
-    path: "/orders",
-    element: (
-      <Protected>
-        {" "}
-        <UserOrdersPage></UserOrdersPage>{" "}
-      </Protected>
-    ),
-  },
-  {
-    path: "/profile",
-    element: (
-      <Protected>
-        <UserProfilePage></UserProfilePage>
-      </Protected>
-    ),
-  },
+  
 
   //admin
 

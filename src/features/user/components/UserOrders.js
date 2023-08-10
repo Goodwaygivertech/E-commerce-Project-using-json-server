@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchLoggedInUserOrderAsync, selectUserInfo, selectUserOrders } from '../userSlice';
-import { Navigate } from 'react-router-dom';
+import {
+  fetchLoggedInUserOrderAsync,
+  selectUserInfo,
+  selectUserOrders,
+} from '../userSlice';
+import { discountedPrice } from '../../../app/constants';
 
 export default function UserOrders() {
   const dispatch = useDispatch();
@@ -10,26 +14,23 @@ export default function UserOrders() {
 
   useEffect(() => {
     dispatch(fetchLoggedInUserOrderAsync(user.id));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   return (
-    <>
-    {!orders && <Navigate to='/' replace={true}></Navigate>}
     <div>
-    
-       {orders.map((order) => (
+      {orders.map((order) => (
         <div>
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-                  Order Id # {order.id}
+                  Order # {order.id}
                 </h1>
                 <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
                   Order Status : {order.status}
                 </h3>
                 <div className="flow-root">
-                  <ul role="list" className="-my-6 divide-y divide-gray-200">
+                  <ul className="-my-6 divide-y divide-gray-200">
                     {order.items.map((item) => (
                       <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -46,7 +47,7 @@ export default function UserOrders() {
                               <h3>
                                 <a href={item.href}>{item.title}</a>
                               </h3>
-                              <p className="ml-4">${item.price}</p>
+                              <p className="ml-4">${discountedPrice(item)}</p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
                               {item.brand}
@@ -112,6 +113,5 @@ export default function UserOrders() {
         </div>
       ))}
     </div>
-    </>
   );
 }
