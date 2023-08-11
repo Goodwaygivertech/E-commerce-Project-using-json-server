@@ -10,6 +10,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { selectSelectedProduct } from "../../product/productListSlice";
 import { brands, categories } from "../../../data";
+import { fetchCartItemsByUserId } from "../../cart/cartAPI";
 function ProductForm() {
   const {
     register,
@@ -24,7 +25,7 @@ function ProductForm() {
   const params = useParams();
   const selectedProduct = useSelector(selectSelectedProduct);
 
-  useEffect(() => {
+  fetchCartItemsByUserId(() => {
     if (params.id) {
       dispatch(fetchProductByIdAsync(params.id));
     } else {
@@ -46,6 +47,8 @@ function ProductForm() {
       setValue("brand", selectedProduct.brand);
       setValue("category", selectedProduct.category);
     }
+          // eslint-disable-next-line
+
   }, [selectedProduct, params.id, setValue]);
 
   const handleDelete = () => {
@@ -165,7 +168,7 @@ function ProductForm() {
                 >
                   <option value="">--choose brand--</option>
                   {brands.map((brand) => (
-                    <option value={brand.value}>{brand.label}</option>
+                    <option key={brand.value} value={brand.value}>{brand.label}</option>
                   ))}
                 </select>
               </div>
@@ -186,7 +189,7 @@ function ProductForm() {
                 >
                   <option value="">--choose category--</option>
                   {categories.map((category) => (
-                    <option value={category.value}>{category.label}</option>
+                    <option key={category.value} value={category.value}>{category.label}</option>
                   ))}
                 </select>
               </div>

@@ -95,7 +95,7 @@ console.log(currentOrder)
     {currentOrder  && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-full">
           <form
             className="bg-white px-5 py-12 mt-12"
             noValidate
@@ -330,7 +330,7 @@ console.log(currentOrder)
               </div>
             </div>
           </form>
-        </div>  
+        
         {/* addresses */}
         <div className="border-b border-gray-900/10 mt-10">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -383,7 +383,7 @@ console.log(currentOrder)
                 Payment Methods
               </legend>
               <p className="mt-1 text-sm leading-6 text-gray-600">Choose One</p>
-              <div className="mt-6 space-y-6">
+              <div className="mt-6 space-y-2 mx-7 mb-7">
                 <div className="flex items-center gap-x-3">
                   <input
                     id="cash"
@@ -398,10 +398,10 @@ console.log(currentOrder)
                     htmlFor="cash"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Cash
-                  </label>
+                    Cash 💵
+                  </label> 
                 </div>
-                <div className="flex items-center gap-x-3">
+                <div className="flex mt-2 items-center gap-x-3">
                   <input
                     id="card"
                     onChange={handlePayment}
@@ -409,22 +409,22 @@ console.log(currentOrder)
                     checked={paymentMethod === "card"}
                     value="card"
                     type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    className="h-4   w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                   <label
                     htmlFor="card"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Card Payment
+                    className="block  text-sm font-medium leading-6 text-gray-900"
+                   >
+                    Card Payment 💳
                   </label>
                 </div>
               </div>
             </fieldset>
           </div>
         </div>
-
+        </div>  
         {/* smaall cart preview */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-full">
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-1 sm:px-1 lg:px-4">
               <div className="border-t border-gray-200 px-1 py-1 sm:px-1">
@@ -438,7 +438,7 @@ console.log(currentOrder)
                   >
                     {cartProducts &&
                       cartProducts.map((item) => (
-                        <li key={item.id} className="flex py-6">
+                        <li key={item.id} className="flex rounded-sm px-2 py-6">
                           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                             <img
                               src={item.thumbnail}

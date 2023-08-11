@@ -15,7 +15,7 @@ import AdminProductFormPage from "../pages/AdminProductFormPage";
 import AdminOrdersPage from "../pages/AdminOrdersPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import Logout from "../features/auth/components/Logout";
-import ProtectedAdmin from "../features/auth/components/ProtectedAdmin"
+import ProtectedAdmin from "../features/auth/components/ProtectedAdmin";
 import AdminHome from "../pages/AdminHome";
 import NavBar from "../features/navbar/Navbar";
 const router = createBrowserRouter([
@@ -37,14 +37,10 @@ const router = createBrowserRouter([
     element: <SignupPage></SignupPage>,
   },
 
-  
-
   {
     path: "/orders",
     element: (
-  
       <Protected>
-       
         <UserOrdersPage></UserOrdersPage>
       </Protected>
     ),
@@ -53,35 +49,37 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <Protected>
-      
         <UserProfilePage></UserProfilePage>
-     
       </Protected>
     ),
   },
 
   {
-    path: '/logout',
+    path: "/logout",
     element: <Logout></Logout>,
   },
   {
-    path: '/forgot-password',
+    path: "/forgot-password",
     element: <ForgotPasswordPage></ForgotPasswordPage>,
   },
-
-  
 
   {
     path: "/productdetails/:id",
     element: (
       <Protected>
-        <ProductDetailsPage></ProductDetailsPage>
+        <NavBar>
+          <ProductDetailsPage></ProductDetailsPage>
+        </NavBar>
       </Protected>
     ),
   },
   {
     path: "/order-success/:id",
-    element: <OrderSuccessPage></OrderSuccessPage>,
+    element: (
+      <Protected>
+        <OrderSuccessPage></OrderSuccessPage>
+      </Protected>
+    ),
   },
   {
     path: "/cart",
@@ -99,13 +97,11 @@ const router = createBrowserRouter([
       </Protected>
     ),
   },
-  
 
   //admin
 
- 
   {
-    path: '/admin',
+    path: "/admin",
     element: (
       <ProtectedAdmin>
         <AdminHome></AdminHome>
@@ -113,7 +109,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/admin/productdetails/:id',
+    path: "/admin/productdetails/:id",
     element: (
       <ProtectedAdmin>
         <AdminProductDetailPage></AdminProductDetailPage>
@@ -121,7 +117,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/admin/product-form',
+    path: "/admin/product-form",
     element: (
       <ProtectedAdmin>
         <AdminProductFormPage></AdminProductFormPage>
@@ -129,7 +125,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/admin/orders',
+    path: "/admin/orders",
     element: (
       <ProtectedAdmin>
         <AdminOrdersPage></AdminOrdersPage>
@@ -137,7 +133,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/admin/product-form/edit/:id',
+    path: "/admin/product-form/edit/:id",
     element: (
       <ProtectedAdmin>
         <AdminProductFormPage></AdminProductFormPage>

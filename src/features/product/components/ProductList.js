@@ -98,10 +98,12 @@ export default function ProductList() {
 
     dispatch(fetchFilterProductAsync({ filter, sort, pagination }));
     console.log(filter);
+    // eslint-disable-next-line
   }, [dispatch, sort, filter, page]);
 
   useEffect(() => {
     setPage(1);
+    // eslint-disable-next-line
   }, [filter, sort]);
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -521,6 +523,7 @@ const Pagination = ({
 
               {Array.from({ length: totalPages }).map((el, index) => (
                 <div
+                key={index}
                   onClick={(e) => handlePage(index + 1)}
                   aria-current="page"
                   className={`relative cursor-pointer z-10 inline-flex items-center ${
@@ -534,7 +537,7 @@ const Pagination = ({
               ))}
 
               <div
-                onClick={() => handlePage(page == totalPages ? page : page + 1)}
+                onClick={() => handlePage(page === totalPages ? page : page + 1)}
                 className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>

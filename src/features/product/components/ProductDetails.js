@@ -6,7 +6,7 @@ import {
   selectSelectedProduct,
   fetchProductByIdAsync,
 } from "../productListSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { addToCartAsync, selectCartItems, updateCartAsync } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 
@@ -50,6 +50,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
+    // eslint-disable-next-line
   }, [dispatch, params.id]);
 
   const product = useSelector(selectSelectedProduct);
@@ -87,19 +88,19 @@ addToCartText.innerText = "Added to Cart";
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
             <ol
-              role="list"
+              
               className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
             >
               {product.breadcrumbs &&
                 product.breadcrumbs.map((breadcrumb) => (
                   <li key={breadcrumb.id}>
                     <div className="flex items-center">
-                      <a
-                        href={breadcrumb.href}
+                      <Link
+                        to={breadcrumb.href}
                         className="mr-2 text-sm font-medium text-gray-900"
                       >
                         {breadcrumb.name}
-                      </a>
+                      </Link>
                       <svg
                         width={16}
                         height={20}
@@ -114,13 +115,13 @@ addToCartText.innerText = "Added to Cart";
                   </li>
                 ))}
               <li className="text-sm">
-                <a
-                  href={product.href}
+                <Link
+                  to={product.href}
                   aria-current="page"
                   className="font-medium text-gray-500 hover:text-gray-600"
                 >
                   {product.title}
-                </a>
+                </Link>
               </li>
             </ol>
           </nav>
@@ -243,12 +244,12 @@ addToCartText.innerText = "Added to Cart";
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Size guide
-                    </a>
+                    </Link>
                   </div>
 
                   <RadioGroup
@@ -349,7 +350,7 @@ addToCartText.innerText = "Added to Cart";
                 </h3>
 
                 <div className="mt-4">
-                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                  <ul  className="list-disc space-y-2 pl-4 text-sm">
                     {highlights.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>

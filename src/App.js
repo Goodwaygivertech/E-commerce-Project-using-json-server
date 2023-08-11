@@ -1,12 +1,10 @@
-import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import router from "./router/MyRouter";
 
 import {
-  createBrowserRouter,
+ 
   RouterProvider,
-  Route,
-  Link,
+
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCartItemsByUserIdAsync } from "./features/cart/cartSlice";
@@ -23,6 +21,7 @@ function App() {
       dispatch(fetchCartItemsByUserIdAsync(user.id));
       dispatch(fetchLoggedInUserAsync(user.id))
       dispatch(fetchLoggedInUserOrderAsync(user.id));
+      // eslint-disable-next-line
 
 
     }

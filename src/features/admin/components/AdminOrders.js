@@ -65,7 +65,7 @@ function AdminOrders() {
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchAllOrdersAsync({ sort, pagination }));
-    // eslint-disable-next-line
+    // eslint-disable-next-liness
   }, [dispatch, page, sort]);
   //image preview
 
@@ -145,7 +145,7 @@ function AdminOrders() {
               </thead>
               <tbody className="text-gray-600 text-sm font-light">
                 {orders.map((order) => (
-                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                  <tr key={order.id} className="border-b border-gray-200 hover:bg-gray-100">
                     <td className="py-3 px-6 text-left whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="mr-2"></div>
@@ -154,12 +154,13 @@ function AdminOrders() {
                     </td>
                     <td className="py-3 px-6 text-left">
                       {order.items.map((item) => (
-                        <div className="flex items-center">
+                        <div key={order.id} className="flex items-center">
                           <div className="mr-2 border-solid border-2 border-indigo-600 rounded-md	">
                             <img
                               onClick={() => openModal(item.thumbnail)}
                               className="w-16 h-16   full"
                               src={item.thumbnail}
+                              alt={item.title}
                             />
                           </div>
 
