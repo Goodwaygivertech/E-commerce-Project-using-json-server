@@ -103,19 +103,20 @@ const router = createBrowserRouter([
 
   //admin
 
-  {
-    path: '/admin/product-detail/:id',
-    element: (
-      <ProtectedAdmin>
-        <AdminProductDetailPage></AdminProductDetailPage>
-      </ProtectedAdmin>
-    ),
-  },
+ 
   {
     path: '/admin',
     element: (
       <ProtectedAdmin>
         <AdminHome></AdminHome>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: '/admin/productdetails/:id',
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailPage></AdminProductDetailPage>
       </ProtectedAdmin>
     ),
   },

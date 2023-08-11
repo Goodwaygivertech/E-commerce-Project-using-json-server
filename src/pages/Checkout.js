@@ -34,11 +34,13 @@ function Checkout() {
   );
 
   const handleQuntity = (e, item) => {
+    e.stopPropagation();
     const newItem = { ...item, quantity: +e.target.value };
     // delete newItem["id"];
     dispatch(updateCartAsync(newItem));
   };
   const handleItemDelete = (e, itemId) => {
+    e.stopPropagation();
     dispatch(deleteItemFromCartAsync(itemId));
   };
 
@@ -51,14 +53,17 @@ function Checkout() {
     formState: { errors },
   } = useForm();
   const handleAddress = (e) => {
+    e.stopPropagation();
     console.log(e.target.value);
     setSelectedAddress(user.addresses[e.target.value]);
   };
   const handlePayment = (e) => {
+    e.stopPropagation();
     console.log(e.target.value);
     setPaymentMethod(e.target.value);
   };
   const handleOrder = (e) => {
+   e.stopPropagation();
     if (selectedAddress && paymentMethod) {
       const order = {
         items : cartProducts,
