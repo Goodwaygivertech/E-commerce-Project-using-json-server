@@ -10,6 +10,8 @@ import {
 import { Link } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Navigate } from "react-router-dom";
+import { useAlert } from "react-alert";
+import Modal from "../common/Modal";
 
 // const products = [
 //   {
@@ -61,10 +63,13 @@ export default function Cart() {
     dispatch(deleteItemFromCartAsync(itemId));
   };
 
+  //alert
+
+  const alert = useAlert();
+  const [openModal , setOpenModal] = useState(null)
   return (
     <>
-     
-      { !cartProducts.length && <Navigate to='/' replace={true}></Navigate>}
+      {!cartProducts.length && <Navigate to="/" replace={true}></Navigate>}
 
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -111,6 +116,8 @@ export default function Cart() {
                             >
                               <option>1</option>
                               <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
                             </select>
                           </div>
 
@@ -118,8 +125,20 @@ export default function Cart() {
                             <button
                               type="button"
                               className="flex items-center space-x-0.5 font-medium text-indigo-600 hover:text-indigo-500"
-                              onClick={(e) => handleItemDelete(e, item.id)}
+                              onClick={(e) => {
+                                setOpenModal(item.id)
+                              }}
                             >
+                              <Modal 
+                              title={item.title}
+                              message={"Are you sure to delete this item to your Cart"}
+                              dangerOption={"Delete"}
+                              cancelOption={"Cancel"}
+                              dangerAction={(e)=> handleItemDelete(e , item.id)}
+                              showmodal={openModal === item.id}
+
+                              
+                              ></Modal>
                               <XMarkIcon className="w-6 h-6" />{" "}
                               {/* Adjust the icon size as needed */}
                               <span>Remove</span>

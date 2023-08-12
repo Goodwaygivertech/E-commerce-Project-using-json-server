@@ -23,6 +23,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
+import { useAlert } from "react-alert";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -107,9 +108,10 @@ export default function ProductList() {
   }, [filter, sort]);
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
+ const alert = useAlert();
   return (
     <div className="bg-white">
+      {/* {alert.error("You just broke something!")} */}
       <div>
         <MobileFilter
           handleFilter={handleFilter}

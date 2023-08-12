@@ -14,6 +14,7 @@ import {
 } from "../features/auth/authSlice";
 import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 import { Navigate } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 function Checkout() {
   // for cart
@@ -78,7 +79,16 @@ function Checkout() {
       // need to redirect from here to a new page of order success.
     } else {
       // TODO : we can use proper messaging popup here
-      alert("Enter Address and Payment method");
+      alert.show('Please choose Address and Payment method', {
+        type: 'success',
+        // options
+          width: '500px',
+          // backgroundColor: 'blue',
+          // textColor : "red"
+          // Add other customization options as needed
+        
+      })
+      
     }
     //TODO : Redirect to order-success page
     //TODO : clear cart after order
@@ -88,6 +98,9 @@ function Checkout() {
 
 const currentOrder = useSelector(selectCurrentOrder)
 console.log(currentOrder)
+
+//alert
+const alert = useAlert()
 
   return (
     <>
@@ -106,7 +119,17 @@ console.log(currentOrder)
                   ...user,
                   addresses: [...user.addresses, data],
                 })
+               
               );
+              alert.show('Adress Added please Choose one', {
+                type: 'success',
+                // options
+                  width: '500px',
+                  // backgroundColor: 'blue',
+                  // textColor : "red"
+                  // Add other customization options as needed
+                
+              })
               reset();
             })}
           >
@@ -324,6 +347,7 @@ console.log(currentOrder)
                 <button
                   type="submit"
                   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              
                 >
                   Add Address
                 </button>

@@ -9,6 +9,7 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { addToCartAsync, selectCartItems, updateCartAsync } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
+import { useAlert } from "react-alert";
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
@@ -66,6 +67,15 @@ if(checkAddedItem){
   // dispatch(addToCartAsync(newItem));
   const newQuantity = checkAddedItem.quantity + 1
   dispatch(updateCartAsync({...checkAddedItem , quantity: newQuantity } ))
+  alert.show('Item Added already so 1 quantity extra Added', {
+    type: 'success',
+    // options
+      width: '500px',
+      // backgroundColor: 'blue',
+      // textColor : "red"
+      // Add other customization options as needed
+    
+  });
 }
 else{
   const newItem = {
@@ -73,14 +83,31 @@ else{
     productId: product.id,
     userId: user.id,
     quantity: 1,
+    
   };
+  alert.show('Item Added to Cart', {
+    type: 'error',
+    // options
+      // width: '500px',
+      // backgroundColor: 'blue',
+      // textColor : "red"
+      // Add other customization options as needed
+    
+  });
   delete newItem["id"];
   dispatch(addToCartAsync(newItem));
 }
 addToCartText.innerText = "Added to Cart";
+setTimeout(() => {
+  addToCartText.innerText = "Add to Cart";
+
+}, 5000);
 
    
   };
+
+const alert = useAlert()
+
 
   return (
     <div className="bg-white">
@@ -325,11 +352,22 @@ addToCartText.innerText = "Added to Cart";
                   type="submit"
                   id="addText"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  onClick={(e) => handelAddToCart(e)}
-                >
+                  onClick={(e) => {handelAddToCart(e);
+                   
+                     
+                  
+                  }}
+                 >
                   Add to Cart
                 </button>
               </form>
+              {/* <button
+        onClick={() => {
+          alert.show("Oh look, an alert!");
+        }}
+      >
+        Show Alert
+      </button> */}
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
